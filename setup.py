@@ -5,11 +5,7 @@ setup(
     version='0.1',
     packages=find_packages(),
     install_requires=[
-        scapy,
-        requests,
         netifaces,
-        subprocess,
-        platform
     ],
     include_package_data=True,
     description='Small snips that make thigs easier.',
