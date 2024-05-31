@@ -27,9 +27,9 @@ Note:
 
 import os
 from sys import exit
-from devtools import getOS
-from devtools import ouiLookup
-from devtools import drawLine
+from dojotools import getOS
+from dojotools import ouiLookup
+from dojotools import drawLine
 
 
 def get_wlan_interfaces():
