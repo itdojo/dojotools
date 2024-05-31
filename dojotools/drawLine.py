@@ -56,4 +56,4 @@ def draw_line(linetype=1):
             print('⏥' * terminal_size.columns)
         case _:
             print('─' * terminal_size.columns)
-    return True
+    return None

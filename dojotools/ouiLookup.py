@@ -54,7 +54,8 @@ Note:
 
 import os.path
 import re
-import macFormatter as mac_formatter
+from dojotools import macFormatter
+import requests
 
 
 def oui_lookup(mac_address, case="upper", seperator=""):
@@ -86,7 +87,7 @@ def oui_lookup(mac_address, case="upper", seperator=""):
 
     ouifile = "oui.txt"
 
-    mac_address = mac_formatter.format_mac_address(mac_address, case, seperator)
+    mac_address = macFormatter.format_mac_address(mac_address, case, seperator)
     mac_address = re.sub(r"[^A-F0-9]", "", mac_address)
     node_oui = mac_address[:6]
 
