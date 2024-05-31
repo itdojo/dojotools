@@ -12,7 +12,7 @@ setup(
         platform
     ],
     include_package_data=True,
-    description='Colin's little pack of tools',
+    description='Small snips that make thigs easier.',
     author='Colin Weaver',
     author_email='colin@itdojo.com',
     url='https://github.com/itdojo/dojotools',
