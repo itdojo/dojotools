@@ -1,5 +1,3 @@
-scapy
-requests
-netifaces
-subprocess
-platform
+netifaces==0.11.0
+scapy==2.5.0
+requests==2.32.3
