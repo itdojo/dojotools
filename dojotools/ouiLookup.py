@@ -113,7 +113,7 @@ def check_for_oui_file():
     bool: True if the 'oui.txt' file exists in the local directory, 
     False otherwise.
     """
-    oui_txtfile = "oui.txt"  # http://standards-oui.ieee.org/oui/oui.txt
+    oui_txtfile = "oui.txt"  # https://standards-oui.ieee.org/oui/oui.txt
 
     oui_txt = os.path.isfile(oui_txtfile)
     if oui_txt:
@@ -138,7 +138,7 @@ def download_oui_file():
     """
     import requests
 
-    oui_url = "http://standards-oui.ieee.org/oui/oui.txt"
+    oui_url = "https://standards-oui.ieee.org/oui/oui.txt"
     ouifile = "oui.txt"
 
     try:
