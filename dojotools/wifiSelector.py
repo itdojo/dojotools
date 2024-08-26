@@ -38,7 +38,8 @@ def get_wlan_interfaces():
     along with their MAC addresses.
 
     This function checks for WLAN interfaces by inspecting the 
-    '/sys/class/net' directory. It filters out non-wireless interfaces and retrieves the MAC addresses for the wireless ones.
+    '/sys/class/net' directory. It filters out non-wireless interfaces and 
+    retrieves the MAC addresses for the wireless ones.
 
     Returns:
     dict: A dictionary where keys are interface names and values are 
