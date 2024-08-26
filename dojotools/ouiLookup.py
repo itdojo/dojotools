@@ -142,6 +142,7 @@ def download_oui_file():
     ouifile = "oui.txt"
 
     try:
+        print("Downloading oui.txt from ieee.org..."
         r = requests.get(oui_url)
         r.raise_for_status()
     except requests.exceptions.HTTPError as err:
