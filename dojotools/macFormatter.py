@@ -1,7 +1,7 @@
 import re
 
 
-def format_mac_address(mac, case="lower", seperator=":"):
+def format_mac_address(mac, case="lower", separator=":"):
     """
     Format a MAC address into a standardized representation.
 
@@ -34,9 +34,9 @@ def format_mac_address(mac, case="lower", seperator=":"):
     clean_mac = re.sub(r'[^0-9a-fA-F]', '', mac)
 
     # Insert colons every two characters
-    if seperator == None:
-        seperator = ""
-    formatted_mac = seperator.join(clean_mac[i:i+2] for i in range(0, len(clean_mac), 2))
+    if separator == None:
+        separator = ""
+    formatted_mac = separator.join(clean_mac[i:i+2] for i in range(0, len(clean_mac), 2))
 
     if case == "upper":
         return formatted_mac.upper()
