@@ -135,7 +135,7 @@ def hopper(iface, dwell=0.2, channels=DEFAULT_CHANNELS, adapter=None, mode="rand
         dwell (float): Time between channel switches.
         channels (str or list): Can be "2.4GHz", "5GHz", "all", or a custom list (i.e. [1,6,11,36,40]).
         adapter (str): Optional; if specified, will override `channels` based on adapter capabilities.
-        mode (str): "random" (default) or "linear" for sequential channel hopping.
+        mode (str): "random" (default) or "sequential" for sequential channel hopping.
         stop_event (threading.Event): Optional event to stop the channel hopper.
     """
     
@@ -148,10 +148,10 @@ def hopper(iface, dwell=0.2, channels=DEFAULT_CHANNELS, adapter=None, mode="rand
     else:
         channels = get_channel_list(channels)
 
-    index = 0  # Used for linear mode
+    index = 0  # Used for sequential mode
     while not (stop_event and stop_event.is_set()):  # Stop if stop_event is set
         try:
-            if mode == "linear":
+            if mode == "sequential":
                 channel = channels[index]  # Pick the next channel sequentially
                 index = (index + 1) % len(channels)  # Loop back when reaching the end
             else:
@@ -175,5 +175,5 @@ if __name__ == "__main__":
     dwell = float(input("Dwell time (default=0.15): ") or 0.15)
     channels = input("Channel selection (2.4GHz, 5GHz, 6GHz, all, or custom list): ") or DEFAULT_CHANNELS
     adapter = input("Adapter name (optional): ")
-    mode = input("Channel hopping mode ('random' or 'linear'): ") or "random"
+    mode = input("Channel hopping mode ('random' or 'sequential'): ") or "random"
     hopper(iface, dwell=0.2, channels="2.4GHz", mode="random")
