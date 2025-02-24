@@ -1,3 +1,5 @@
+# To be added to .zshrc or .bashrc
+
 here() {
   MARK_DIR="$PWD"
   echo "Directory marked: $MARK_DIR"

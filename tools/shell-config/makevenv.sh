@@ -1,3 +1,5 @@
+# To be added to .zshrc or .bashrc
+
 install_python_requirements() {
     local response requirements_str
     local -a requirements

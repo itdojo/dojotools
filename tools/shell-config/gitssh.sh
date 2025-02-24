@@ -1,3 +1,5 @@
+# To be added to .zshrc or .bashrc
+
 gitssh() {
     local github_ssh_key="github"
 
