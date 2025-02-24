@@ -7,7 +7,7 @@ My list of modifications/shortcuts/functions/additions I add to all my installat
 | [`hint`](#hint) | Displays a pretty reminder of my custom shortcuts
 | [`gitssh`](#gitssh---github-ssh-authentication) | Automates SSH authentication to GitHub
 | [`makevenv <path>`](#makevenv-path---python-virtual-environment-creation) | Quickly create a python virtual environment
-| [`here` and `back`](#here-and-back---marking--returning-to-a-directory) | Mark a folder and easily return to it later.
+| [`here`](#here-and-back---marking--returning-to-a-directory) and [`back`](#here-and-back---marking--returning-to-a-directory) | Mark a folder and easily return to it later.
 
 ***
 

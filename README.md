@@ -1,6 +1,8 @@
 # Devtools
 
 ## Quick Links
+
+### Python
 * [**drawLine**](#drawline)
 * [**getOS**](#getos)
 * [**macFormatter**](#macformatter)
@@ -9,6 +11,11 @@
 * [**shellCommand**](#shellcommand)
 * [**wifiSelector**](#wifiselector)
 * [**networkCommands**](#networkcommands)
+
+### Shell (Linux/MacOS)
+* [Shell modifications](#shell-config/README.md) - My `.zshrc`/`.bashrc` essential tweaks.
+
+***
 
 ## Purpose
 This python package is a comprised of a growing number of modules that are aimed as simplifying things that I commonly do when scripting using python.
