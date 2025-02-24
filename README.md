@@ -13,7 +13,7 @@
 * [**networkCommands**](#networkcommands)
 
 ### Shell (Linux/MacOS)
-* [Shell modifications](#shell-config/README.md) - My `.zshrc`/`.bashrc` essential tweaks.
+* [Shell modifications](#tools/shell-config/README.md) - My `.zshrc`/`.bashrc` essential tweaks.
 
 ***
 
