@@ -32,6 +32,9 @@ Returns:
     True: Indicates successful execution and line printing.
 """
 
+from os import get_terminal_size
+
+
 def drawline(linetype=1):
     """
     Prints a line composed of a specified character type, spanning the entire width of the terminal.
