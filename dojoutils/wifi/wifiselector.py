@@ -28,8 +28,8 @@ Note:
 import os
 from sys import exit
 from dojoutils.local_os import getos
-from dojotools.network import ouilookup
-from dojotools.general import drawline
+from dojoutils.network import ouilookup
+from dojoutils.general import drawline
 
 
 def get_wlan_interfaces():
