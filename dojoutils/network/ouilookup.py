@@ -1,6 +1,6 @@
 import os.path
 import re
-import dojoutils.network.macFormatter as macFormatter
+import dojoutils.network.macformatter as macformatter
 import requests
 
 OUI_URL = "https://standards-oui.ieee.org/oui/oui.txt"
@@ -11,7 +11,7 @@ def oui_lookup(mac_address: str, case="upper", seperator="") -> str:
         if not download_oui_file():
             return "OUI file download failed"
 
-    formatted_mac = macFormatter.format_mac_address(mac_address, case, seperator)
+    formatted_mac = macformatter.format_mac_address(mac_address, case, seperator)
     formatted_mac = re.sub(r"[^A-F0-9]", "", formatted_mac)
     node_oui = formatted_mac[:6]
 

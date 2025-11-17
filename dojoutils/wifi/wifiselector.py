@@ -27,9 +27,9 @@ Note:
 
 import os
 from sys import exit
-from dojotools import getOS
-from dojotools import ouiLookup
-from dojotools import drawLine
+from dojoutils.local_os import getos
+from dojotools.network import ouilookup
+from dojotools.general import drawline
 
 
 def get_wlan_interfaces():
@@ -99,12 +99,12 @@ def interface_selector(showmac=True, linetype=1):
     and 'devtools.ouiLookup' for OUI lookups.
     """
     wlan_interfaces = get_wlan_interfaces()
-    drawLine.draw_line(linetype)
+    drawline.drawline(linetype)
     print(" WLAN Interface Selector")
-    drawLine.draw_line(linetype)
+    drawline.drawline(linetype)
     for count, (interface, mac_address) in enumerate(wlan_interfaces.items(), start=1):
         if showmac:
-            oui = ouiLookup.oui_lookup(mac_address)
+            oui = ouilookup.oui_lookup(mac_address)
             print(f"{count}. {interface}  ({mac_address}) ({oui.strip()})")
         else:
             print(f"{count}.  {interface}")
