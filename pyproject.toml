@@ -1,0 +1,15 @@
+[project]
+name = "toollib"
+version = "0.1.0"
+description = "Personal collection of useful Python scripts"
+authors = [{ name="Colin", email="colin@itdojo.com" }]
+readme = "README.md"
+license = { file="LICENSE" }
+dependencies = [
+    "scapy>=2.5.0"
+]
+requires-python = ">=3.8"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

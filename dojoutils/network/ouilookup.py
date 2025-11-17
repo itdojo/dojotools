@@ -1,6 +1,6 @@
 import os.path
 import re
-import macFormatter
+import dojoutils.network.macFormatter as macFormatter
 import requests
 
 OUI_URL = "https://standards-oui.ieee.org/oui/oui.txt"

@@ -39,7 +39,3 @@ def disable_service(service):
 
 def is_installed(package):
     return f"dpkg -s {package}"
-
-def is_installed(command):
-    result = subprocess.run(["which", command], capture_output=True, text=True)
-    return result.returncode == 0

@@ -62,7 +62,7 @@ class RootPrivilegesError(Exception):
     pass
 
 
-def check_root():
+def rootcheck():
     """
     Check if the script is running as root. If not, raise an exception.
     """
@@ -141,7 +141,7 @@ def hopper(iface, dwell=0.15, channels=DEFAULT_CHANNELS, adapter=None, mode="ran
     """
     
     # Import here to avoid circular import
-    from channelhopper import get_channel_list, ADAPTERS, DEFAULT_CHANNELS  # Ensure import works
+    from dojoutils.wifi.channelhopper import get_channel_list, ADAPTERS, DEFAULT_CHANNELS  # Ensure import works
     
     # Determine the channel list
     if adapter:
