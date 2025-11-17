@@ -1,4 +1,4 @@
-from .getos import getos
+from .getos import os_is
 from .rootcheck import check_root
 from .shellcommands import run_shell_cmd
 from .linuxcommands import (
