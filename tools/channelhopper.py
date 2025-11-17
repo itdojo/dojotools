@@ -31,6 +31,7 @@ CHANNELS = {
 
 # Default channel list; most likely to be supported by most adapters
 DEFAULT_CHANNELS = CHANNELS["2.4GHz"] + CHANNELS["5GHz"]
+# print(f"Default channels: {DEFAULT_CHANNELS}")
 
 # List of supported adapters and their supported channels
 ADAPTERS = {
@@ -123,7 +124,7 @@ def get_channel_list(channel_selection):
     return channel_mapping.get(channel_selection, DEFAULT_CHANNELS)  # Default to 2.4 & 5GHz
 
 
-def hopper(iface, dwell=0.2, channels=DEFAULT_CHANNELS, adapter=None, mode="random", stop_event=None):
+def hopper(iface, dwell=0.15, channels=DEFAULT_CHANNELS, adapter=None, mode="random", stop_event=None):
     """
     Performs channel hopping on the specified interface.
     Requires root (sudo) privileges.
