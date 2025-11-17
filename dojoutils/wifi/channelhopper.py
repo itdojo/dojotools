@@ -74,9 +74,7 @@ def supported_adapters():
     """
     Print the list of supported wireless adapters and their supported channels.
     """
-    print("Supported adapters:")
-    for adapter in ADAPTERS:
-        print(f"  {adapter}")
+    return [adapter for adapter in ADAPTERS.keys()]
 
 
 def channel_mappings():

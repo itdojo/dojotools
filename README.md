@@ -1,39 +1,175 @@
-# Devtools
-
-## Quick Links
-
-### Python
-* [**drawLine**](#drawline)
-* [**getOS**](#getos)
-* [**macFormatter**](#macformatter)
-* [**ouiLookup**](#ouilookup)
-* [**rootCheck**](#rootcheck)
-* [**shellCommand**](#shellcommand)
-* [**wifiSelector**](#wifiselector)
-* [**networkCommands**](#networkcommands)
-
-### Shell (Linux/MacOS)
-* [Shell modifications](tools/shell-config/README.md) - My `.zshrc`/`.bashrc` essential tweaks.
-
-***
+# dojoutils
 
 ## Purpose
-This python package is a comprised of a growing number of modules that are aimed as simplifying things that I commonly do when scripting using python.
+
+This python package is a comprised of a growing number of modules that are aimed at simplifying things that I commonly do when scripting using python.
 
 A lot of my interest and work is focused on 802.11 Wireless LAN-related tasks so there is an emphasis on such things in the modules included in this package.
 
-# Module Overview
-The modules include:
-* [**`drawLine`**](#drawline) - Draws a line separator across the screen matching the width of your terminal. There are several line separator styles.
-* [**`getOS`**](#getos) - Returns the OS the script is running on (Windows, MacOS, Linux).  I use it to determine if my script can continue (Example: if my script will only run on Linux).  getOS only returns the OS, it's up to you to do decide what to do with that info in your script.
-* [**`macFormatter`**](#macformatter) - Returns a MAC address in the format you desire, regardless of the input format.  If you give it aa-bb-cc-dd-ee-ff it can return aa:bb:cc:dd:ee:ff or aabbccddeeff or aa.bb.cc.dd.ee.ff, etc.  It can also toggle case if that matters.  This is very helpful for cleaning up MAC addresses to be in the right format for your scripts.
-* [**`ouiLookup`**](#ouilookup) - Given a MAC address it will use the IEEE oui.txt file to look up the name of the vendor.  If oui.txt is not available in the local directory, the module will download it from the Internet.  This may cause a delay the first time it is used.  Subsequent lookups are fast.  If desired, you can [pre-download the oui.txt file from the IEEE](http://standards-oui.ieee.org/oui/oui.txt) using `wget http://standards-oui.ieee.org/oui/oui.txt`.
-* [**`rootCheck`**](#rootcheck) - Checks to see if the script is running as root.  If not root, it will exit the script you are running (so don't use this if you script does not need to be root).
-* [**`shellCommand`**](#shellcommand) - Provide a command as a string (Ex. "`ip link set {iface} down`") to this module and it execute the command and return the result (STDOUT and STDERR).
-* [**`wifiSelector`**](#wifiselector) - This tool only works on Linux and retrieves all wlan interfaces on the system.  It also has a function to create a list of the available interfaces to the user.  Optionally, it will also show the interface MAC address and OUI vendor name.
-* [**`networkCommands`**](#networkcommands) - A list of funtions that return shell scripting command strings.  The idea is to simplify the syntax and readability of your scripts and eliminte the need to constantly add string variables to your scripts for commands you need to run.
+***
+
+## Functionality
+
+* ***Linux***: These tools are primarily intended for Debian-based Linux (most notably Ubuntu and Raspberry Pi OS).  
+* ***MacOS***: There is/will be some functionality within for MacOS users (but not much).  
+* ***Windows***: Nothing will work in Windows.
 
 ***
+
+## Installing & Upgrading/Updating
+
+> Note: Several of the functions in this package assume **iw** is installed (`sudo apt install iw`).
+
+You can install this library on any Debian-based system (including Raspberry Pi) via `pip` (`sudo apt install python3-pip`).
+
+### Installing from GitHub
+
+Install directly from GitHub:
+
+```bash
+pip install git+https://github.com/yourusername/dojoutils.git
+```
+
+### Installing from a local clone
+
+If you cloned the repo to your local computer and want to install from your local clone:
+
+```bash
+git clone https://github.com/yourusername/dojoutils.git
+cd dojoutils
+pip install .
+```
+
+### Updating/Upgrading from GitHub
+
+Update/Upgrade directly from GitHub:
+
+```bash
+pip install --upgrade --force-reinstall git+https://github.com/yourusername/dojoutils.git
+```
+
+### Updating/Upgrading from local clone
+
+Update/Upgrade from your local GitHub clone of the repo:
+
+```bash
+cd dojoutils
+
+git pull
+
+pip install .
+```
+
+***
+
+## Repo Structure
+
+```
+.
+├── dojoutils
+│   ├── __init__.py
+│   ├── general
+│   │   ├── __init__.py
+│   │   └── drawline.py
+│   ├── local_os
+│   │   ├── __init__.py
+│   │   ├── getos.py
+│   │   ├── linuxcommands.py
+│   │   ├── macoscommands.py
+│   │   ├── rootcheck.py
+│   │   └── shellcommands.py
+│   ├── network
+│   │   ├── __init__.py
+│   │   ├── macformatter.py
+│   │   └── ouilookup.py
+│   └── wifi
+│       ├── __init__.py
+│       ├── channelhopper.py
+│       └── wifiselector.py
+├── LICENSE
+├── pyproject.toml
+├── README.md
+└── tests
+```
+
+***
+
+##  dojoutils Package Contents
+
+| Sub-Package | Module | Function/Variable | Brief Description
+|:--|:--|:--|:--|
+| | | |
+| general | drawline | drawline() | Draws horizontal line in terminal. |
+| local_os | getos | os_is() | Returns host OS (Linux, Darwin, etc.) |
+| local_os | linuxcommands | link_down() | Puts network interface down |
+| local_os | linuxcommands | link_up() | Brings network interface up |
+| local_os | linuxcommands | set_mode() | Sets wlan interface mode |
+| local_os | linuxcommands | set_channel() | Sets wlan interface channel |
+| local_os | linuxcommands | get_iface_mode() | Returns wlan interface info |
+| local_os | linuxcommands | set_mac()  | Sets interface MAC address |
+| local_os | linuxcommands | add_route()  | Adds a network route |
+| local_os | linuxcommands | check_service() | Checks if service is running |
+| local_os | linuxcommands | start_service() | Start service |
+| local_os | linuxcommands | enable_service() | Enable service |
+| local_os | linuxcommands | stop_service() | Stop service |
+| local_os | linuxcommands | disable_service() | Disable service |
+| local_os | linuxcommands | is_installed() | Checks if package is installed |
+| local_os | macoscommands | | |
+| local_os | rootcheck | check_root() | Check if running as root |
+| local_os | shellcommands | run_shell_cmd() | Run a shell command |
+| network | macformatter | format_mac_address() | Format a MAC address |
+| network | ouilookup | oui_lookup() | Look up MAC OUI |
+| network | ouilookup | check_for_oui_file() | Checks for oui.txt locally |
+| network | ouilookup | download_oui_file() | Downloads oui.txt from IEEE |
+| wifi | channelhopper | CHANNELS | Variable. List of channels by frequency |
+| wifi | channelhopper | DEFAULT_CHANNELS | List of "default" channels |
+| wifi | channelhopper | rootcheck() | Check if running as root |
+| wifi | channelhopper | supported_adapters() | Returns list of supported adapters |
+| wifi | channelhopper | channel_mappings() | Prints description of channel mappings |
+| wifi | channelhopper | get_channel_list() | Return a list of channels to be used by hopper |
+| wifi | channelhopper | hopper() | Starts/Stops channel hopper |
+| wifi | wifiselector | get_wlan_interfaces() | Return list of wlan interfaces on local host |
+| wifi | wifiselector | interface_selector() | Presents interactive prompt for user to select available wlan interface |
+
+***
+
+#### dojoutils.general
+*	**drawline.py**: Simple text drawing utilities
+
+#### dojoutils.local_os
+*	**getos.py**: OS detection and versioning
+*	**linuxcommands.py**: Common Linux CLI wrappers
+*	**macoscommands.py**: macOS-specific CLI helpers
+*	**rootcheck.py**: Check for root/sudo privileges
+*	**shellcommands.py**: Run arbitrary shell commands
+
+#### dojoutils.network
+*	**macformatter.py**: Format and normalize MAC addresses
+*	**ouilookup.py**: Vendor lookup for MAC address prefixes
+
+#### dojoutils.wifi
+*	**channelhopper.py**: Wi-Fi channel hopping for supported adapters
+*	**wifiselector.py**: Detect and select wireless interfaces
+
+***
+
+## Module Overview
+The modules include:
+* [**`drawline`**](#drawline) - Draws a line separator across the screen matching the width of your terminal. There are several line separator styles.
+* [**`getos`**](#getos) - Returns the OS the script is running on (Windows, MacOS, Linux).  I use it to determine if my script can continue (Example: if my script will only run on Linux).  getOS only returns the OS, it's up to you to do decide what to do with that info in your script.
+* [**`macformatter`**](#macformatter) - Returns a MAC address in the format you desire, regardless of the input format.  If you give it aa-bb-cc-dd-ee-ff it can return aa:bb:cc:dd:ee:ff or aabbccddeeff or aa.bb.cc.dd.ee.ff, etc.  It can also toggle case if that matters.  This is very helpful for cleaning up MAC addresses to be in the right format for your scripts.
+* [**`ouilookup`**](#ouilookup) - Given a MAC address it will use the IEEE oui.txt file to look up the name of the vendor.  If oui.txt is not available in the local directory, the module will download it from the Internet.  This may cause a delay the first time it is used.  Subsequent lookups are fast.  If desired, you can [pre-download the oui.txt file from the IEEE](http://standards-oui.ieee.org/oui/oui.txt) using `wget http://standards-oui.ieee.org/oui/oui.txt`.
+* [**`rootCheck`**](#rootcheck) - Checks to see if the script is running as root.  If not root, it will exit the script you are running (so don't use this if you script does not need to be root).
+* [**`shellcommand`**](#shellcommand) - Provide a command as a string (Ex. "`ip link set {iface} down`") to this module and it execute the command and return the result (STDOUT and STDERR).
+* [**`wifiSelector`**](#wifiselector) - This tool only works on Linux and retrieves all wlan interfaces on the system.  It also has a function to create a list of the available interfaces to the user.  Optionally, it will also show the interface MAC address and OUI vendor name.
+* [**`networkcommands`**](#networkcommands) - A list of funtions that return shell scripting command strings.  The idea is to simplify the syntax and readability of your scripts and eliminte the need to constantly add string variables to your scripts for commands you need to run.
+
+***
+***
+***
+***
+
+# Everything Below Here is out of date and needs to be rewritten
 
 # Module Details and Usage
 
