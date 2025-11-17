@@ -1,22 +1,21 @@
 """
 This module provides a function to draw decorative lines in the terminal.
 
-The function 'draw_line' prints a line composed of a specific character, 
-spanning the entire width of the terminal window. It leverages the 
-os.get_terminal_size method to dynamically determine the width of the 
-terminal at runtime, ensuring that the printed line always fits perfectly 
-across the terminal window, regardless of its current size.
+The function 'drawline()' prints a line composed of a specific unicode character 
+spanning the entire width of the terminal window. It leverages os.get_terminal_size 
+method to dynamically determine terminal width when function is called.  This ensures
+printed line always fits perfectly across the terminal window.
 
 Functions:
-    draw_line(linetype=1): Prints a line of a specified type across the terminal window.
+    drawline(linetype=1): Prints a line of a specified type across the terminal window.
 
 Available Line Types:
     1: Solid line   (────────────────)
     2: Dotted line  (∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙)
-    3: I-Beam line  (⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶)
+    3: I-Beam line  (⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶)  prints solid, no space between characters
     4: Star line    (☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆)
     5: Solid Star   (✯✯✯✯✯✯✯✯✯✯✯✯✯✯✯✯)
-    6: Double line  (⏥⏥⏥⏥⏥⏥⏥⏥⏥)
+    6: Double line  (⏥⏥⏥⏥⏥⏥⏥⏥⏥)  prints solid, no space between characters
     7: Diamond line (♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢)
     8: Box line     (⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕)
     Any other value defaults to a solid line (────────────────).
@@ -28,6 +27,12 @@ Example:
     >>> drawline(4)
     This will print a line of stars spanning the width of the terminal.
 
+Usage: 
+    import into your script and call the function. Example:
+
+    from drawline import drawline
+    drawline()
+    
 Returns:
     True: Indicates successful execution and line printing.
 """
@@ -66,4 +71,4 @@ def drawline(linetype=1):
         case _:
             linestyle = '─'  # sold line
     print(f"{linestyle * terminal_size.columns}")
-    return True
+    return None
