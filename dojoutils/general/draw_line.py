@@ -1,13 +1,15 @@
 """
 This module provides a function to draw decorative lines in the terminal.
 
-The function 'drawline()' prints a line composed of a specific unicode character 
-spanning the entire width of the terminal window. It leverages os.get_terminal_size 
-method to dynamically determine terminal width when function is called.  This ensures
-printed line always fits perfectly across the terminal window.
+The function 'drawline()' prints a line composed of a specific unicode 
+character spanning the entire width of the terminal window. It leverages
+os.get_terminal_size method to dynamically determine terminal width when
+function is called.  This ensures printed line always fits perfectly 
+across the terminal window.
 
 Functions:
-    drawline(linetype=1): Prints a line of a specified type across the terminal window.
+    drawline(linetype=1): Prints a line of a specified type across the 
+    terminal window.
 
 Available Line Types:
     1: Solid line   (────────────────)
@@ -30,11 +32,11 @@ Example:
 Usage: 
     import into your script and call the function. Example:
 
-    from draw_line import drawline
+    from dojoutils.general.draw_line import drawline
+
     drawline()
     
-Returns:
-    True: Indicates successful execution and line printing.
+Returns:  None
 """
 
 from os import get_terminal_size
@@ -47,8 +49,18 @@ def drawline(linetype=1):
     Parameters:
     linetype (int, optional): Specifies the type of line to be drawn. Defaults to 1 (solid line).
 
-    Returns:
-    bool: True if the line is printed successfully.
+    Available Line Types:
+    1: Solid line   (────────────────)
+    2: Dotted line  (∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙)
+    3: I-Beam line  (⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶⌶)  prints solid, no space between characters
+    4: Star line    (☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆)
+    5: Solid Star   (✯✯✯✯✯✯✯✯✯✯✯✯✯✯✯✯)
+    6: Double line  (⏥⏥⏥⏥⏥⏥⏥⏥⏥)  prints solid, no space between characters
+    7: Diamond line (♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢)
+    8: Box line     (⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕⎕)
+    Any other value defaults to a solid line (────────────────).
+
+    Returns:  None
     """
     terminal_size = get_terminal_size()
     match linetype:

@@ -175,6 +175,8 @@ lorem ipsum dolor...
 #### Usage
 lorem ipsum dolor...
 
+<img src=dojoutils/assets/images/drawline.png width=75%>
+
 ***
 
 ### `os_is()`
