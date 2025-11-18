@@ -49,6 +49,22 @@ cd dojotools
 pip install .
 ```
 
+### Install in editable mode
+
+> This mode is generally only useful if you are doing dev work on this package and want to be able to quickly and easily test your changes without having to reinstall the package each time.
+
+If you want to make your own changes to any of the package module functions but don't want to have to re-install the package every time you make a change you can install in 'editable' mode.  Doing this links your local repo to your site-packages.  This means when you import the package or any of its modules they are loaded from your local repo rather than a *real* installed copy in site-packages.  When you make changes to the local repo they are immediately reflected in your system without having to re-install the package (you will need to re-import the package after making a change).
+
+```bash
+# clone repo
+git clone https://github.com/itdojo/dojotools.git
+
+cd dojotools
+
+# install in editable mode from repo
+pip install -e .
+```
+
 ### Update/Upgrade from GitHub
 
 Update/Upgrade directly from GitHub:
