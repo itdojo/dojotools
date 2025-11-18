@@ -27,9 +27,9 @@ Note:
 
 import os
 from sys import exit
-from dojoutils.local_os import getos
-from dojoutils.network import ouilookup
-from dojoutils.general import drawline
+import dojoutils.getos
+import dojoutils.ouilookup
+import dojoutils.drawl_ine
 
 
 def get_wlan_interfaces():
@@ -95,11 +95,10 @@ def interface_selector(showmac=True, linetype=1):
     valid selection.
     - The function allows refreshing the list of interfaces or quitting 
     the selection process.
-    - This function relies on 'devtools.drawLine' for drawing lines 
-    and 'devtools.ouiLookup' for OUI lookups.
     """
+    
     wlan_interfaces = get_wlan_interfaces()
-    drawline.drawline(linetype)
+    draw_line.drawline(linetype)
     print(" WLAN Interface Selector")
     drawline.drawline(linetype)
     for count, (interface, mac_address) in enumerate(wlan_interfaces.items(), start=1):
@@ -110,7 +109,6 @@ def interface_selector(showmac=True, linetype=1):
             print(f"{count}.  {interface}")
     print()
 
-    attempt_count = 0
     max_attempts = 3
 
     while attempt_count < max_attempts:
