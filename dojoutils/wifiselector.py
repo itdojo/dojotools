@@ -28,7 +28,7 @@ Note:
 import os
 from sys import exit
 import dojoutils.getos as getos
-import dojoutils.ouilookup
+from dojoutils.ouilookup import oui_lookup
 from dojoutils.draw_line import drawline
 
 
@@ -103,7 +103,7 @@ def interface_selector(showmac=True, linetype=1):
     drawline(linetype)
     for count, (interface, mac_address) in enumerate(wlan_interfaces.items(), start=1):
         if showmac:
-            oui = ouilookup.oui_lookup(mac_address)
+            oui = oui_lookup(mac_address)
             print(f"{count}. {interface}  ({mac_address}) ({oui.strip()})")
         else:
             print(f"{count}.  {interface}")
