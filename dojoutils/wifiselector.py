@@ -110,6 +110,7 @@ def interface_selector(showmac=True, linetype=1):
     print()
 
     max_attempts = 3
+    attempt_count = 0
 
     while attempt_count < max_attempts:
         choice = input("#️⃣  Enter WLAN interface by number ('q' to quit, 'r' to refresh): ").strip()
