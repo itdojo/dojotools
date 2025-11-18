@@ -34,9 +34,9 @@ def format_mac_address(mac, case="lower", sep=":"):
     clean_mac = re.sub(r'[^0-9a-fA-F]', '', mac)
 
     # Insert colons every two characters
-    if separator == None:
-        separator = ""
-    formatted_mac = separator.join(clean_mac[i:i+2] for i in range(0, len(clean_mac), 2))
+    if sep == None:
+        sep = ""
+    formatted_mac = sep.join(clean_mac[i:i+2] for i in range(0, len(clean_mac), 2))
 
     if case == "upper":
         return formatted_mac.upper()
