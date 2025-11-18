@@ -6,12 +6,12 @@ import requests
 OUI_URL = "https://standards-oui.ieee.org/oui/oui.txt"
 OUI_FILE = "oui.txt"
 
-def oui_lookup(mac_address: str, case="upper", seperator="") -> str:
+def oui_lookup(mac_address: str, case="upper", sep="") -> str:
     if not check_for_oui_file():
         if not download_oui_file():
             return "OUI file download failed"
 
-    formatted_mac = macformatter.format_mac_address(mac_address, case, seperator)
+    formatted_mac = macformatter.format_mac_address(mac_address, case, sep)
     formatted_mac = re.sub(r"[^A-F0-9]", "", formatted_mac)
     node_oui = formatted_mac[:6]
 
