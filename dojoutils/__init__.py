@@ -10,6 +10,7 @@ from .channelhopper import (
     ADAPTERS,
     DEFAULT_CHANNELS
 )
+
 from .wifiselector import (
     get_wlan_interfaces,
     interface_selector

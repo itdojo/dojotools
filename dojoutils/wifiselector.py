@@ -29,7 +29,7 @@ import os
 from sys import exit
 import dojoutils.getos
 import dojoutils.ouilookup
-import dojoutils.drawl_ine
+import dojoutils.draw_line
 
 
 def get_wlan_interfaces():
@@ -96,7 +96,7 @@ def interface_selector(showmac=True, linetype=1):
     - The function allows refreshing the list of interfaces or quitting 
     the selection process.
     """
-    
+
     wlan_interfaces = get_wlan_interfaces()
     draw_line.drawline(linetype)
     print(" WLAN Interface Selector")
