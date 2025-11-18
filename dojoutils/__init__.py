@@ -6,9 +6,9 @@ from .channelhopper import (
     channel_mappings, 
     get_channel_list, 
     hopper,
-    CHANNELS,
-    ADAPTERS,
-    DEFAULT_CHANNELS
+    WIFI_CHANNELS,
+    SUPPORTED_WIFI_ADAPTERS,
+    DEFAULT_WIFI_CHANNELS
 )
 
 from .wifiselector import (

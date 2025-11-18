@@ -1,7 +1,7 @@
 import re
 
 
-def format_mac_address(mac, case="lower", separator=":"):
+def format_mac_address(mac, case="lower", sep=":"):
     """
     Format a MAC address into a standardized representation.
 
@@ -11,10 +11,10 @@ def format_mac_address(mac, case="lower", separator=":"):
     also allows specifying the case of the output (either lower or upper).
 
     Parameters:
-    - mac (str): The MAC address to be formatted.
+    - mac (str, required): The MAC address to be formatted.
     - case (str, optional): The case of the output MAC address. 
       Options are 'lower' (default) or 'upper'.
-    - separator (str, optional): The character to separate hex digits in the MAC address. 
+    - sep (str, optional): Character to separate hex digits in MAC address. 
       Default is ':'. If set to None, no separator is used.
 
     Returns:
@@ -24,10 +24,10 @@ def format_mac_address(mac, case="lower", separator=":"):
     >>> format_mac_address("00:c0:ca:32:bd:25")
     '00:c0:ca:32:bd:25'
 
-    >>> format_mac_address("00c0.ca32.bd25", case="upper", separator="-")
+    >>> format_mac_address("00c0.ca32.bd25", case="upper", sep="-")
     '00-C0-CA-32-BD-25'
 
-    >>> format_mac_address("00-c0-ca-32-bd-25", separator=None)
+    >>> format_mac_address("00-c0-ca-32-bd-25", sep=None)
     '00c0ca32bd25'
     """
     # Remove all non-hexadecimal characters
