@@ -20,44 +20,61 @@ A lot of my interest and work is focused on 802.11 Wireless LAN-related tasks so
 
 > Note: Several of the functions in this package assume **iw** is installed (`sudo apt install iw`).
 
+* [Install direct from GitHub](#install-from-github)
+* [Install from local clone](#install-from-local-clone)
+* [Update/Upgrade from GitHub](#updateupgrade-from-github)
+* [Update/Upgrade from local clone](#updateupgrade-from-local-clone)
+
 You can install this library on any Debian-based system (including Raspberry Pi) via `pip` (`sudo apt install python3-pip`).
 
-### Installing from GitHub
+### Install from GitHub
 
 Install directly from GitHub:
 
 ```bash
-pip install git+https://github.com/yourusername/dojoutils.git
+pip install git+https://github.com/itdojo/dojotools.git
 ```
 
-### Installing from a local clone
+### Install from local clone
 
 If you cloned the repo to your local computer and want to install from your local clone:
 
 ```bash
-git clone https://github.com/yourusername/dojoutils.git
-cd dojoutils
+# clone repo
+git clone https://github.com/itdojo/dojotools.git
+
+cd dojotools
+
+# install from repo
 pip install .
 ```
 
-### Updating/Upgrading from GitHub
+### Update/Upgrade from GitHub
 
 Update/Upgrade directly from GitHub:
 
 ```bash
-pip install --upgrade --force-reinstall git+https://github.com/yourusername/dojoutils.git
+pip install --upgrade --force-reinstall git+https://github.com/itdojo/dojotools.git
 ```
 
-### Updating/Upgrading from local clone
+### Update/Upgrade from local clone
 
 Update/Upgrade from your local GitHub clone of the repo:
 
 ```bash
-cd dojoutils
+cd dojotools
 
 git pull
 
 pip install .
+```
+
+***
+
+## Uninstalling
+
+```bash
+pip uninstall dojoutils
 ```
 
 ***
@@ -89,7 +106,7 @@ pip install .
 ├── LICENSE
 ├── pyproject.toml
 ├── README.md
-└── tests
+└── tests`
 ```
 
 ***
@@ -99,70 +116,348 @@ pip install .
 | Sub-Package | Module | Function/Variable | Brief Description
 |:--|:--|:--|:--|
 | | | |
-| general | drawline | drawline() | Draws horizontal line in terminal. |
-| local_os | getos | os_is() | Returns host OS (Linux, Darwin, etc.) |
-| local_os | linuxcommands | link_down() | Puts network interface down |
-| local_os | linuxcommands | link_up() | Brings network interface up |
-| local_os | linuxcommands | set_mode() | Sets wlan interface mode |
-| local_os | linuxcommands | set_channel() | Sets wlan interface channel |
-| local_os | linuxcommands | get_iface_mode() | Returns wlan interface info |
-| local_os | linuxcommands | set_mac()  | Sets interface MAC address |
-| local_os | linuxcommands | add_route()  | Adds a network route |
-| local_os | linuxcommands | check_service() | Checks if service is running |
-| local_os | linuxcommands | start_service() | Start service |
-| local_os | linuxcommands | enable_service() | Enable service |
-| local_os | linuxcommands | stop_service() | Stop service |
-| local_os | linuxcommands | disable_service() | Disable service |
-| local_os | linuxcommands | is_installed() | Checks if package is installed |
-| local_os | macoscommands | | |
-| local_os | rootcheck | check_root() | Check if running as root |
-| local_os | shellcommands | run_shell_cmd() | Run a shell command |
-| network | macformatter | format_mac_address() | Format a MAC address |
-| network | ouilookup | oui_lookup() | Look up MAC OUI |
-| network | ouilookup | check_for_oui_file() | Checks for oui.txt locally |
-| network | ouilookup | download_oui_file() | Downloads oui.txt from IEEE |
+| general | drawline | [drawline()](#drawline) | Draws horizontal line in terminal. |
+| local_os | getos | [os_is()](#os_is) | Returns host OS (Linux, Darwin, etc.) |
+| local_os | linuxcommands | [link_down()](#link_down) | Puts network interface down |
+| local_os | linuxcommands | [link_up()](#link_up) | Brings network interface up |
+| local_os | linuxcommands | [set_mode()](#set_mode) | Sets wlan interface mode |
+| local_os | linuxcommands | [set_channel()](#set_channel) | Sets wlan interface channel |
+| local_os | linuxcommands | [get_iface_mode()](#get_iface_mode) | Returns wlan interface info |
+| local_os | linuxcommands | [set_mac()](#set_mac)  | Sets interface MAC address |
+| local_os | linuxcommands | [add_route()](#add_route)  | Adds a network route |
+| local_os | linuxcommands | [check_service()](#check_service) | Checks if service is running |
+| local_os | linuxcommands | [start_service()](#start_service) | Start service |
+| local_os | linuxcommands | [enable_service()](#enable_service) | Enable service |
+| local_os | linuxcommands | [stop_service()](#stop_service) | Stop service |
+| local_os | linuxcommands | [disable_service()](#disable_service) | Disable service |
+| local_os | linuxcommands | [is_installed()](#is_installed) | Checks if package is installed |
+| local_os | rootcheck | [check_root()](#check_root) | Check if running as root |
+| local_os | shellcommands | [run_shell_cmd()](#run_shell_cmd) | Run a shell command |
+| network | macformatter | [format_mac_address()](#format_mac_address) | Format a MAC address |
+| network | ouilookup | [oui_lookup()](#oui_lookup) | Look up MAC OUI |
+| network | ouilookup | [check_for_oui_file()](#check_for_oui_file) | Checks for oui.txt locally |
+| network | ouilookup | [download_oui_file()](#download_oui_file) | Downloads oui.txt from IEEE |
 | wifi | channelhopper | CHANNELS | Variable. List of channels by frequency |
 | wifi | channelhopper | DEFAULT_CHANNELS | List of "default" channels |
-| wifi | channelhopper | rootcheck() | Check if running as root |
-| wifi | channelhopper | supported_adapters() | Returns list of supported adapters |
-| wifi | channelhopper | channel_mappings() | Prints description of channel mappings |
-| wifi | channelhopper | get_channel_list() | Return a list of channels to be used by hopper |
-| wifi | channelhopper | hopper() | Starts/Stops channel hopper |
-| wifi | wifiselector | get_wlan_interfaces() | Return list of wlan interfaces on local host |
-| wifi | wifiselector | interface_selector() | Presents interactive prompt for user to select available wlan interface |
+| wifi | channelhopper | [rootcheck()](#rootcheck) | Check if running as root |
+| wifi | channelhopper | [supported_adapters()](#supported_adapters) | Returns list of supported adapters |
+| wifi | channelhopper | [channel_mappings()](#channel_mappings) | Prints description of channel mappings |
+| wifi | channelhopper | [get_channel_list()](#get_channel_list) | Return a list of channels to be used by hopper |
+| wifi | channelhopper | [hopper()](#hopper) | Starts/Stops channel hopper |
+| wifi | wifiselector | [get_wlan_interfaces()](#get_wlan_interfaces) | Return list of wlan interfaces on local host |
+| wifi | wifiselector | [interface_selector()](#interface_selector) | Presents interactive prompt for user to select available wlan interface |
+
+***
+## Package Functions
+
+### `drawline()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
 
 ***
 
-#### dojoutils.general
-*	**drawline.py**: Simple text drawing utilities
+### `os_is()`
+[Back to package table](#dojoutils-package-contents)
 
-#### dojoutils.local_os
-*	**getos.py**: OS detection and versioning
-*	**linuxcommands.py**: Common Linux CLI wrappers
-*	**macoscommands.py**: macOS-specific CLI helpers
-*	**rootcheck.py**: Check for root/sudo privileges
-*	**shellcommands.py**: Run arbitrary shell commands
+#### Description
+lorem ipsum dolor...
 
-#### dojoutils.network
-*	**macformatter.py**: Format and normalize MAC addresses
-*	**ouilookup.py**: Vendor lookup for MAC address prefixes
-
-#### dojoutils.wifi
-*	**channelhopper.py**: Wi-Fi channel hopping for supported adapters
-*	**wifiselector.py**: Detect and select wireless interfaces
+#### Usage
+lorem ipsum dolor...
 
 ***
 
-## Module Overview
-The modules include:
-* [**`drawline`**](#drawline) - Draws a line separator across the screen matching the width of your terminal. There are several line separator styles.
-* [**`getos`**](#getos) - Returns the OS the script is running on (Windows, MacOS, Linux).  I use it to determine if my script can continue (Example: if my script will only run on Linux).  getOS only returns the OS, it's up to you to do decide what to do with that info in your script.
-* [**`macformatter`**](#macformatter) - Returns a MAC address in the format you desire, regardless of the input format.  If you give it aa-bb-cc-dd-ee-ff it can return aa:bb:cc:dd:ee:ff or aabbccddeeff or aa.bb.cc.dd.ee.ff, etc.  It can also toggle case if that matters.  This is very helpful for cleaning up MAC addresses to be in the right format for your scripts.
-* [**`ouilookup`**](#ouilookup) - Given a MAC address it will use the IEEE oui.txt file to look up the name of the vendor.  If oui.txt is not available in the local directory, the module will download it from the Internet.  This may cause a delay the first time it is used.  Subsequent lookups are fast.  If desired, you can [pre-download the oui.txt file from the IEEE](http://standards-oui.ieee.org/oui/oui.txt) using `wget http://standards-oui.ieee.org/oui/oui.txt`.
-* [**`rootCheck`**](#rootcheck) - Checks to see if the script is running as root.  If not root, it will exit the script you are running (so don't use this if you script does not need to be root).
-* [**`shellcommand`**](#shellcommand) - Provide a command as a string (Ex. "`ip link set {iface} down`") to this module and it execute the command and return the result (STDOUT and STDERR).
-* [**`wifiSelector`**](#wifiselector) - This tool only works on Linux and retrieves all wlan interfaces on the system.  It also has a function to create a list of the available interfaces to the user.  Optionally, it will also show the interface MAC address and OUI vendor name.
-* [**`networkcommands`**](#networkcommands) - A list of funtions that return shell scripting command strings.  The idea is to simplify the syntax and readability of your scripts and eliminte the need to constantly add string variables to your scripts for commands you need to run.
+### `link_down()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `link_up()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `set_mode()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `set_channel()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `get_iface_mode()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `set_mac()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `add_route()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `check_service()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `start_service()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `enable_service()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `stop_service()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `disable_service()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `is_installed()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `check_root()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `run_shell_cmd()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `format_mac_address()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `oui_lookup()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `check_for_oui_file()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `download_oui_file()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `rootcheck()()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `supported_adapters()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `channel_mappings()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `get_channel_list()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `hopper()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `get_wlan_interfaces()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
+### `interface_selector()`
+[Back to package table](#dojoutils-package-contents)
+
+#### Description
+lorem ipsum dolor...
+
+#### Usage
+lorem ipsum dolor...
+
+***
+
 
 ***
 ***
@@ -197,10 +492,10 @@ drawLine.draw_line(linetype=1)
 
 ***
 
-## **`getOS`**
+**`getOS`**
 Returns the OS the script is running on (Windows, MacOS, Linux).  I use it to determine if my script can continue (Example: if my script will only run on Linux).  `getOS` only returns the generic OS name ("Windows", "Linux", "Darwin" (MacOS), etc.), it's up to you to do decide what to do with that info in your script.
 
-### How to use **`getOS`**
+How to use **`getOS`**
 
 ```python
 import devtools.getOS as getOS
@@ -212,12 +507,12 @@ getOS.os_is()
 
 ***
 
-## **`macFormatter`**
+**`macFormatter`**
 Returns a MAC address in the format you desire, regardless of the input format you feed it.  If you give it aa-bb-cc-dd-ee-ff it can return aa:bb:cc:dd:ee:ff or aabbccddeeff or aa.bb.cc.dd.ee.ff, etc.  It can also toggle case if desired.
 
 > Note: `macFormatter` does not currently validate the sanity of your input (specifically, length and non-hex characters).  I plan add that functionality later.  So, for now, you'll need to be careful if you are manually entering MAC addresses.
 
-### How to use **`macFormatter`**
+How to use **`macFormatter`**
 
 ```python
 import devtools.macFormatter as macFormatter
@@ -245,12 +540,12 @@ macFormatter.format_mac_address("aa-bb-cc-11-22-33", case="upper", seperator=":"
 
 ***
 
-## **ouiLookup**
+**ouiLookup**
 Given a MAC address, it will use the IEEE oui.txt file to look up the name of the vendor.  If oui.txt is not available in the local directory, the module will download it from the Internet.  This may cause a brief delay the first time it is used (oui.txt is just under 6MB).  Subsequent lookups are fast because oui.txt is stored locally.  If desired, you can [pre-download the oui.txt file from the IEEE](http://standards-oui.ieee.org/oui/oui.txt) using `wget http://standards-oui.ieee.org/oui/oui.txt`.
 
 > Note: The IEEE regularly updates oui.txt.  You should consider deleting your locally cached copy every couple of months to force your scripts to download a new copy.
 
-### How to use **`ouiLookup`**
+How to use **`ouiLookup`**
 
 The IEEE oui.txt file list OUIs in the format "AA-BB-12" and "AABB12".  I wrote this function to look up the "AABB12" format.  Regardless of your input the MAC address will be formatted correctly (for the lookup to use it) by the module.  You do not need to worry about formtting your input to the function.  See examples below.
 
@@ -265,10 +560,10 @@ ouiLookup.oui_lookup("aa:bb:cc:11:22:33")
 
 ***
 
-## **`rootCheck`**
+**`rootCheck`**
  Checks to see if the script is running as root.  If not root, it will exit the script you are running (so don't use this if you script does not need to be root).  I figure you won't be checking for root if you don't need your script to run as root so this module will kill your script if you're not root.
 
-### How to use **`rootCheck`**
+How to use **`rootCheck`**
 
 ```python
 import devtools rootCheck as rootCheck
@@ -290,7 +585,7 @@ Running the script as root user:
 
 ***
 
-## **`shellCommand`**
+**`shellCommand`**
 
 ***********************
 ==***This needs to be rewritten.  What I have done is A) not detailed enough and B) probably too complex for the commands I typically run.  I need to change this to use subprocess.run() and check the returncode rather than the length of stderr and stdout.  It is possible that certain scripts/commands might generate outoput to both stderr and stdout.  If that happend with what I have here it will produce a false positive.  Live and learn...***==
@@ -338,7 +633,7 @@ Here is a failure example (insufficient privilege):
 
 ***
 
-## **`wifiSelector`**
+**`wifiSelector`**
 
 `wifiSelector` has two functions:
 * **`get_wlan_interfaces()`** - Returns all available wlan interfaces as a dictionary object with the key:value pairs in the form of ***'interface':'mac_address'***.  
@@ -367,7 +662,7 @@ As an example: Interface **wlan2** may be listed as item #3 on the list.  To cho
 
 Optionally, this module will also show the interface MAC address and OUI vendor name.
 
-### How to use **`wifiSelector.get_wlan_interfaces()`**
+How to use **`wifiSelector.get_wlan_interfaces()`**
 
 Syntax for `get_wlan_interfaces()`
 ```python
@@ -382,7 +677,7 @@ interfaces = wifiSelector.get_wlan_interfaces()
 
 ***
 
-### How to use **`wifiSelector.interface_selector()`**
+How to use **`wifiSelector.interface_selector()`**
 
 Syntax for `interface_selector()`:
 ```python
@@ -413,5 +708,5 @@ print(sniffer_iface)
 
 ***
 
-## `networkCommands`
+`networkCommands`
 * Coming soon...
