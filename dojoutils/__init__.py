@@ -1,7 +1,6 @@
 __version__ = "0.1.0"
 
 from .channelhopper import (
-    rootcheck, 
     supported_adapters, 
     channel_mappings, 
     get_channel_list, 
