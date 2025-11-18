@@ -32,7 +32,7 @@ Example:
 Usage: 
     import into your script and call the function. Example:
 
-    from dojoutils.general.draw_line import drawline
+    from dojoutils.draw_line import drawline
 
     drawline()
     
