@@ -49,7 +49,7 @@ def get_wlan_interfaces():
     SystemExit: If the operating system is not Linux, as the function 
     is designed specifically for Debian/Ubuntu Linux.
     """
-    if getOS.os_is() != "Linux":
+    if getos.os_is() != "Linux":
         print("\nThis tool only runs on Debian/Ubuntu versions of Linux.\nExiting.\n")
         return None
     
