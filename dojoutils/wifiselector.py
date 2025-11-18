@@ -27,7 +27,7 @@ Note:
 
 import os
 from sys import exit
-import dojoutils.getos
+import dojoutils.getos as getos
 import dojoutils.ouilookup
 import dojoutils.draw_line
 
